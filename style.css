@@ -1,0 +1,29 @@
+html {
+    background-color: orange;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.main {
+    width: 45%;
+    height: 12%;
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    margin: 7%;
+    margin-left: 29%;
+}
+
+.content {
+    padding-top: 10%;
+    padding-bottom: 19%;
+}
+
+#in {
+    text-align: right;
+}

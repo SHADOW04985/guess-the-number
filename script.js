@@ -1,0 +1,48 @@
+var systemGuess = Math.floor(Math.random()*100)+1
+var guess=0
+
+async function sleep(seconds) {
+    return new Promise((resolve)=>setTimeout(resolve,seconds*1000));
+}
+
+async function guessNumber()
+{
+    var num = document.getElementById('in').value
+    if(num.length === 0)
+    {
+        document.getElementById("out").innerText = "Please provide a number"
+    }
+    else if (num>100) {
+        document.getElementById("out").innerText = "Provide a number smaller than 100"
+    }
+    else if (num<1) {
+        document.getElementById("out").innerText = "Provide a number greater than 0"
+    }
+    else
+    {
+        guess++
+        var num = parseInt(document.getElementById('in').value)
+        if(num === systemGuess)
+        {
+            document.getElementById('guess').innerText = ""
+            document.getElementById('out').innerHTML = '<i>Got the answer correctly</i><br>You made '+guess+' guesses'
+            for (let i=1;i<=5;i++) {
+                document.getElementById('reload').innerText = "The Page will reload in "+(6-i)+" sec(s)"
+                await sleep(1)
+            }
+            setTimeout(function(){
+                window.location.reload(1);
+            }, 1);
+        }
+        else if(num > systemGuess)
+        {
+            document.getElementById('guess').innerText = "Guesses Made: "+guess
+            document.getElementById('out').innerText = 'Guess a smaller number'
+        }
+        else
+        {
+            document.getElementById('guess').innerText = "Guesses Made: "+guess
+            document.getElementById('out').innerText = 'Guess a greater number'
+        }
+    }
+}   
